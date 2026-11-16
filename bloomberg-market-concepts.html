@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloomberg for Education | Bloomberg Market Concepts</title>
+  <style>
+    :root {
+      --black: #050505;
+      --ink: #292d30;
+      --muted: #777;
+      --orange: #e78316;
+      --content-width: 840px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      color: var(--ink);
+      background-color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .topbar {
+      height: 56px;
+      padding: 0 28px;
+      background: var(--black);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      color: #f5f5f5;
+      font-size: 25px;
+      font-weight: 400;
+      letter-spacing: -.55px;
+      text-decoration: none;
+    }
+
+    .account {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      color: #fff;
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .account .person { font-size: 18px; }
+    .account .chevron { font-size: 12px; transform: translateY(-2px); }
+
+    .navigation {
+      height: 31px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      padding: 0 30px;
+      background: #fff;
+      border-bottom: 1px solid #bdbdbd;
+      box-shadow: 0 2px 3px rgba(0,0,0,.17);
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+    }
+
+    .navigation a {
+      color: #171717;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .navigation .dropdown::after {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 5px;
+      vertical-align: 3px;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid currentColor;
+    }
+
+    main {
+      min-height: calc(100vh - 141px);
+      padding: 64px 24px 66px;
+      background-color: #fff;
+      background-image: radial-gradient(circle, #b9b9b9 1px, transparent 1.15px);
+      background-size: 24px 24px;
+    }
+
+    .content {
+      width: 100%;
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 19px;
+      color: #292d30;
+      font-size: 36px;
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: -.65px;
+    }
+
+    .intro {
+      margin: 0 0 15px;
+      max-width: 840px;
+      font-size: 20px;
+      line-height: 1.32;
+      letter-spacing: .02px;
+    }
+
+    .rule {
+      height: 1px;
+      border: 0;
+      background: #e1e1e1;
+      margin: 16px 0 16px;
+    }
+
+    .acknowledgement,
+    .certificate-id,
+    .verified {
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .acknowledgement { margin: 0 0 15px; }
+    .certificate-id { margin: 0 0 15px; }
+
+    .student-name { color: var(--orange); font-weight: 700; }
+    .orange { color: var(--orange); }
+
+    .certificate-image {
+      display: block;
+      width: min(100%, 755px);
+      aspect-ratio: 755 / 535;
+      height: auto;
+      object-fit: cover;
+      background: #262626;
+      margin: 0 0 7px;
+    }
+
+    .verified { margin: 0; }
+    .verified a { color: #0873e8; text-decoration: underline; }
+    .verified .check { color: var(--orange); font-size: 14px; }
+
+    footer {
+      min-height: 27px;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #050505;
+      color: #aaa;
+      font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      padding: 0 19px;
+      border-right: 1px solid #888;
+      line-height: 13px;
+    }
+
+    .footer-links a:first-child { padding-left: 0; }
+    .footer-links a:last-child { padding-right: 0; border-right: 0; }
+
+    @media (max-width: 700px) {
+      .topbar { height: 54px; padding: 0 17px; }
+      .brand { font-size: 20px; }
+      .navigation { gap: 18px; padding: 0 17px; overflow-x: auto; }
+      .navigation a { font-size: 12px; }
+      main { padding: 42px 20px 48px; }
+      h1 { font-size: 29px; }
+      .intro { font-size: 17px; line-height: 1.4; }
+      .acknowledgement, .certificate-id, .verified { font-size: 14px; }
+      footer { padding: 10px 14px; align-items: flex-start; flex-direction: column; }
+      .footer-links { flex-wrap: wrap; row-gap: 8px; }
+      .footer-links a { padding: 0 10px; }
+      .footer-links a:first-child { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">Bloomberg for Education</a>
+    <div class="account" aria-label="Account menu">
+      <span class="person" aria-hidden="true">♟</span>
+      <span class="chevron" aria-hidden="true">⌄</span>
+    </div>
+  </header>
+
+  <nav class="navigation" aria-label="Main navigation">
+    <a href="#">Home</a>
+    <a href="#">Certificates</a>
+    <a class="dropdown" href="#">Continuous Learning</a>
+    <a href="#">Trading Challenge</a>
+  </nav>
+
+  <main>
+    <section class="content">
+      <h1>Bloomberg Market Concepts</h1>
+      <p class="intro">
+        Bloomberg for Education offers a series of credentials that will boost your knowledge and
+        strengthen your job applications. These e-learning courses provide a self-paced, interactive way
+        to explore different areas of finance deeply. Upon finishing each program, you will receive a
+        certificate of completion that you can promote on your LinkedIn, resume, and CV.
+      </p>
+
+      <hr class="rule" />
+
+      <p class="acknowledgement">
+        This is to acknowledge that <span class="student-name">Ronak Kanwar Shekhawat</span> has completed courses required for BMC certification on
+        <span class="orange">November 04, 2026.</span>
+      </p>
+
+      <p class="certificate-id">
+        Certificate ID: <span class="orange">fB54JV6rv4Kac9j3N92XxiMw</span>
+      </p>
+
+      <!-- Replace certificate-photo.png with the PNG image you want displayed here. -->
+      <img
+        class="certificate-image"
+        src="/Users/navya/Downloads/ronak.png"
+        alt="Bloomberg Market Concepts certificate image"
+      />
+
+      <p class="verified">
+        Verified by: <a href="#">Bloomberg for Education</a> <span class="check" aria-label="Verified">✪</span>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Bloomberg Finance L.P. All rights reserved.</span>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#">About Us</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Us</a>
+    </nav>
+  </footer>
+</body>
+</html>
